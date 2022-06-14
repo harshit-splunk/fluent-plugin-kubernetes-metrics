@@ -17,6 +17,7 @@ require 'time'
 require 'fluent/plugin/input'
 require 'kubeclient'
 require 'multi_json'
+# require 'rest-client'
 
 module Fluent
   module Plugin
