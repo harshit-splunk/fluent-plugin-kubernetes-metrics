@@ -17,6 +17,7 @@ require 'time'
 require 'fluent/plugin/input'
 require 'kubeclient'
 require 'multi_json'
+# require 'rest-client'
 
 module Fluent
   module Plugin
@@ -166,7 +167,7 @@ module Fluent
         }
 
         auth_options = {}
-        auth_options[:bearer_token] = File.read(@bearer_token_file) if @bearer_token_file
+        auth_options[:bearer_token_file] = @bearer_token_file if @bearer_token_file
 
         @client = Kubeclient::Client.new(
           @kubernetes_url, 'v1',
@@ -242,6 +243,10 @@ module Fluent
           ssl_options = {}
         end
         ssl_options
+      end
+
+      def update_rest_client_header
+        @client.headers[:Authorization] = 'Bearer ' + File.read(@bearer_token_file) if @bearer_token_file
       end
 
       # This method is used to set the options for sending a request to the kubelet api
@@ -677,6 +682,7 @@ module Fluent
           response = RestClient::Request.execute request_options
           handle_response(response)
         else
+          update_rest_client_header
           @node_names.each do |node|
             response = summary_proxy_api(node).get(@client.headers)
             handle_response(response)
@@ -688,6 +694,7 @@ module Fluent
         if @use_rest_client
           response_stats = RestClient::Request.execute request_options_stats
         else
+          update_rest_client_header
           @node_names.each do |node|
             @node_name = node
             response_stats = stats_proxy_api(node).get(@client.headers)
@@ -703,6 +710,7 @@ module Fluent
           response_stats = RestClient::Request.execute request_options_stats
           handle_stats_response(response_stats)
         else
+          update_rest_client_header
           @node_names.each do |node|
             @node_name = node
             response_stats = stats_proxy_api(node).get(@client.headers)
@@ -716,6 +724,7 @@ module Fluent
           response_cadvisor = RestClient::Request.execute cadvisor_request_options
           handle_cadvisor_response(response_cadvisor)
         else
+          update_rest_client_header
           @node_names.each do |node|
             response_cadvisor = cadvisor_proxy_api(node).get(@client.headers)
             handle_cadvisor_response(response_cadvisor)

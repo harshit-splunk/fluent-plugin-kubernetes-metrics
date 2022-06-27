@@ -5,3 +5,4 @@ group :test do
 end
 
 gemspec
+gem 'kubeclient', git: 'https://github.com/harshit-splunk/kubeclient.git', ref: '4b4f26e'
