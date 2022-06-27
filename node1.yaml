@@ -1,0 +1,153 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    node.alpha.kubernetes.io/ttl: "0"
+    volumes.kubernetes.io/controller-managed-attach-detach: "true"
+  creationTimestamp: "2022-06-07T13:25:14Z"
+  labels:
+    alpha.eksctl.io/cluster-name: eks-test
+    alpha.eksctl.io/nodegroup-name: ng-5566906a
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/instance-type: t2.micro
+    beta.kubernetes.io/os: linux
+    eks.amazonaws.com/capacityType: ON_DEMAND
+    eks.amazonaws.com/nodegroup: ng-5566906a
+    eks.amazonaws.com/nodegroup-image: ami-01abdc6ebffef0c6c
+    eks.amazonaws.com/sourceLaunchTemplateId: lt-08897fb7693f01e78
+    eks.amazonaws.com/sourceLaunchTemplateVersion: "1"
+    failure-domain.beta.kubernetes.io/region: us-west-2
+    failure-domain.beta.kubernetes.io/zone: us-west-2c
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: ip-192-168-40-160.us-west-2.compute.internal
+    kubernetes.io/os: linux
+    node.kubernetes.io/instance-type: t2.micro
+    topology.kubernetes.io/region: us-west-2
+    topology.kubernetes.io/zone: us-west-2c
+  name: ip-192-168-40-160.us-west-2.compute.internal
+  resourceVersion: "2780571"
+  uid: 1d748704-0ee0-4528-893b-1ec687849fcb
+spec:
+  providerID: aws:///us-west-2c/i-098dcea140e58d3f2
+status:
+  addresses:
+  - address: 192.168.40.160
+    type: InternalIP
+  - address: 35.88.215.39
+    type: ExternalIP
+  - address: ip-192-168-40-160.us-west-2.compute.internal
+    type: Hostname
+  - address: ip-192-168-40-160.us-west-2.compute.internal
+    type: InternalDNS
+  - address: ec2-35-88-215-39.us-west-2.compute.amazonaws.com
+    type: ExternalDNS
+  allocatable:
+    attachable-volumes-aws-ebs: "39"
+    cpu: 940m
+    ephemeral-storage: "76224326324"
+    hugepages-2Mi: "0"
+    memory: 589268Ki
+    pods: "4"
+  capacity:
+    attachable-volumes-aws-ebs: "39"
+    cpu: "1"
+    ephemeral-storage: 83873772Ki
+    hugepages-2Mi: "0"
+    memory: 997844Ki
+    pods: "4"
+  conditions:
+  - lastHeartbeatTime: "2022-06-21T11:11:55Z"
+    lastTransitionTime: "2022-06-07T13:25:13Z"
+    message: kubelet has sufficient memory available
+    reason: KubeletHasSufficientMemory
+    status: "False"
+    type: MemoryPressure
+  - lastHeartbeatTime: "2022-06-21T11:11:55Z"
+    lastTransitionTime: "2022-06-07T13:25:13Z"
+    message: kubelet has no disk pressure
+    reason: KubeletHasNoDiskPressure
+    status: "False"
+    type: DiskPressure
+  - lastHeartbeatTime: "2022-06-21T11:11:55Z"
+    lastTransitionTime: "2022-06-07T13:25:13Z"
+    message: kubelet has sufficient PID available
+    reason: KubeletHasSufficientPID
+    status: "False"
+    type: PIDPressure
+  - lastHeartbeatTime: "2022-06-21T11:11:55Z"
+    lastTransitionTime: "2022-06-07T13:25:45Z"
+    message: kubelet is posting ready status
+    reason: KubeletReady
+    status: "True"
+    type: Ready
+  daemonEndpoints:
+    kubeletEndpoint:
+      Port: 10250
+  images:
+  - names:
+    - hvaghani/fluentd-hec@sha256:f4ec0ff29569917f247f2c99aa391793de687d0367bfaa2f577bfd8cb4737bae
+    - hvaghani/fluentd-hec:1.2.13-kube-2
+    sizeBytes: 948982403
+  - names:
+    - hvaghani/k8s-metrics-aggr@sha256:32256b4faca8805541b88c373f2100bcc48de3dd16f00aea862bfa3d8142e37a
+    - hvaghani/k8s-metrics-aggr:1.1.12-kube-2
+    sizeBytes: 901010884
+  - names:
+    - hvaghani/fluentd-hec@sha256:f0bc4c87bba597a7f6afb83898a36a06e4c8414037a77260d7b5863766347c00
+    - hvaghani/fluentd-hec:1.2.13-kube-1
+    sizeBytes: 900038348
+  - names:
+    - splunk/kube-objects@sha256:56ca5640631a4c86200017b0fb34656cc36c4926f43b3a1f1d828cbd5d485cc8
+    - splunk/kube-objects:1.1.12
+    sizeBytes: 899885106
+  - names:
+    - hvaghani/kube-objects@sha256:0c4639698ea78cbc30351700b870514af9071b70624f4216600fcba3bfb9d08e
+    - hvaghani/kube-objects:1.1.12-kube-1
+    sizeBytes: 895207691
+  - names:
+    - hvaghani/kube-objects@sha256:fdbd3de45804899ae7173fb0292cb85f1e7e7be2e3df4883a8434780af3d3d51
+    - hvaghani/kube-objects:1.1.13
+    sizeBytes: 894659706
+  - names:
+    - hvaghani/kube-objects@sha256:7cbbd276a7902ef206f56a2341d856afa1bc68a2debc8540b4b18e91760de474
+    - hvaghani/kube-objects:1.1.14
+    sizeBytes: 894597488
+  - names:
+    - hvaghani/kube-objects@sha256:9b4c950458eb809984e074c85acae4ad86d0eae670a26c40810971cb8f11712f
+    - hvaghani/kube-objects:1.1.12
+    sizeBytes: 894594019
+  - names:
+    - splunk/k8s-metrics@sha256:072355fd8157fe4972035dfb6b63534fa5fa903e9b7d1446b8d4b9047bfd142e
+    - splunk/k8s-metrics:1.1.12
+    sizeBytes: 858115577
+  - names:
+    - hvaghani/k8s-metrics@sha256:0e1f22bbde58405a098616d87fa96e2c6bc3371a5a9eb8e3768c3af6a48f3604
+    - hvaghani/k8s-metrics:1.1.12-kube-1
+    sizeBytes: 851738943
+  - names:
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni@sha256:3b6db8b6fb23424366ef91d7e9e818e42291316fa81c00c2c75dcafa614340c5
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1
+    sizeBytes: 302003068
+  - names:
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni-init@sha256:6c70af7bf257712105a89a896b2afb86c86ace865d32eb73765bf29163a08c56
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1
+    sizeBytes: 276136949
+  - names:
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/kube-proxy@sha256:0ea6717ed144c7f04922bf56662d58d5b14b7b62ef78c70e636a02d22052681c
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2
+    sizeBytes: 130851332
+  - names:
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause@sha256:1cb4ab85a3480446f9243178395e6bee7350f0d71296daeb6a9fdd221e23aea6
+    - 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/pause:3.1-eksbuild.1
+    sizeBytes: 682696
+  nodeInfo:
+    architecture: amd64
+    bootID: ff7e4d01-d7b9-4835-9e18-1900833d9f5b
+    containerRuntimeVersion: docker://20.10.13
+    kernelVersion: 5.4.190-107.353.amzn2.x86_64
+    kubeProxyVersion: v1.21.12-eks-5308cf7
+    kubeletVersion: v1.21.12-eks-5308cf7
+    machineID: 76b32a6c90cb4c4891a64b45ba3aaf2d
+    operatingSystem: linux
+    osImage: Amazon Linux 2
+    systemUUID: ec20d60a-c744-4c18-b7cc-e12d026fc924
